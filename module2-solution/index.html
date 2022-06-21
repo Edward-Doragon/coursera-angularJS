@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ShoppingListApp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <title>Document</title>
+    <title>Check List</title>
 </head>
 <body>
-    
+    <div ng-controller="ShoppingToBuyController as ToBuy">
+        <h3>To Buy</h3>
+        
+        <ul>
+            <li ng-repeat="item in ToBuy.toBuyList">
+                Buy {{item.quantity}} {{item.name}} 
+                <button ng-click="ToBuy.boughtItem($index)"> Bought </button>
+            </li>
+        </ul>
+        <div ng-if="ToBuy.toBuyList.length == 0">
+            <p>Everthing is bought!</p>
+        </div>
+    </div>
+    <div ng-controller="ShoppingAlredyBoughtController as AlredyBought">
+        <h3>Alredy Bought List</h3>
+
+        <ul>
+            <li ng-repeat="item in AlredyBought.alredyBoughtList">
+                Bought {{item.quantity}} {{item.name}} 
+            </li>
+            <div ng-if="AlredyBought.alredyBoughtList.length == 0">
+                <p >Nothing bought yet</p>
+            </div>
+        </ul>
+    </div>
 </body>
 </html>
