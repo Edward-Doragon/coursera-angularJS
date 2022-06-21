@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AppModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="AppController">
+    <h1>2-way, 1-way and 1-time bindings</h1>
+
+    <button ng-click="showNumberOfWatchers()">Number Of Watchers</button>
+    <button ng-click="setFullName()">Set Full Name</button>
+
+    <br>
+    Full name is: {{ ::fullName  }} 
+    <br>
+
+    <button ng-click="logFirstName()">Log First name</button>
+    <button ng-click="logFullName()">Log Full Name</button>
+
+    <div>
+        <input type="text" ng-model="firstName">
+    </div>
+
+</body>
+</html>

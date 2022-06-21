@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="ShoppingListController as shoppingList">
+        <h3> Shopping List Service</h3>
+
+        <input type="text" ng-model="shoppingList.itemName" placeholder="Item Name">
+        <input type="text" ng-model="shoppingList.itemQuantity" placeholder="Item Quantity">
+        <button ng-click="shoppingList.addItem()">Add item</button>
+
+        <ol>
+            <li ng-repeat="item in shoppingList.items"> {{item.quantity}} of {{item.name}} </li>
+        </ol>
+
+        <!-- Diferentes maneiras de fazer uma div aparecer com angularJs-->
+        <!-- 
+        <div ng-if="shoppingList.errorMessage">
+            <p>Error: {{shoppingList.errorMessage}} </p>
+        </div>
+        -->
+        <!-- 
+        <div ng-show="shoppingList.errorMessage">
+            <p>Error: {{shoppingList.errorMessage}} </p>
+        </div>
+         -->
+        <div ng-hide="!shoppingList.errorMessage">
+            <p>Error: {{shoppingList.errorMessage}} </p>
+        </div>
+        
+
+    </div>
+</body>
+</html>
